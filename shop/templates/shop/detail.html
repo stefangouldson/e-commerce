@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -40,37 +38,23 @@
 
     <div class="container mt-3">
         <div class="row">
-            {% for product in product_objects %}
-            <div class="col-3">
-                <div class="card" style="min-height: 100%;">
-                    <img src="{{product.image}}" class="card-img-top" alt="">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mt-auto">{{product.title}}</h5>
-                        <p class="card-text">£{{product.price}}</p>
-                        <div class="mt-auto d-flex justify-content-between">
-                            <a href="{% url 'detail' product.id %}" class="btn btn-warning">View</a>
-                            <a href="" class="btn btn-warning">Add</a>
-                        </div>
-                    </div>
-                </div>
+          
+
+            <div class="col-6">
+                <img src="{{product.image}}" alt="">
             </div>
-            {% endfor %}
+
+            <div class="col-6">
+                <h5 class="card-title mt-auto">{{product.title}}</h5>
+                <h6>{{product.description}}</h6>
+                <p class="card-text">£{{product.price}}</p>
+                <a href="#" class="btn btn-primary mt-auto">Add</a>
+            </div>
+        
         </div>
     </div>
 
-    <div class="container">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                {% if product_objects.has_previous %}
-                    <li class="page-item"><a class="page-link" href="?page={{product_objects.previous_page_number}}">Previous</a></li>
-                {% endif %}
-
-                {% if product_objects.has_next %}
-                    <li class="page-item"><a class="page-link" href="?page={{product_objects.next_page_number}}">Next</a></li>
-                {% endif %}
-            </ul>
-          </nav>
-    </div>
+  
 
 
 </body>
