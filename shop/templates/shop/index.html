@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">E-Commerce</a>
+            <a class="navbar-brand" href="/">E-Commerce</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -53,6 +53,20 @@
             </div>
             {% endfor %}
         </div>
+    </div>
+
+    <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if product_objects.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{product_objects.previous_page_number}}">Previous</a></li>
+                {% endif %}
+
+                {% if product_objects.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{product_objects.next_page_number}}">Next</a></li>
+                {% endif %}
+            </ul>
+          </nav>
     </div>
 
 
